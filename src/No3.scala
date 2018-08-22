@@ -4,11 +4,13 @@ object No3 {
   }
 
   def largestPrimeFactor(n: Long) = {
-    def inner(acc: Long): Long = {
-      if (isPrime(acc) && (n % acc == 0)) acc else inner(acc - 1)
+    def inner(n: Long, acc: Long): Long = {
+      if ((n % acc == 0) && isPrime(acc))
+        if (isPrime(n)) n
+        else inner(n / acc, acc)
+      else inner(n, acc + 1)
     }
-
-    inner(n - 1)
+    inner(n, 2)
   }
 
   def isPrime(n: Long): Boolean = {
@@ -17,7 +19,7 @@ object No3 {
       else if (n % acc == 0) false
       else inner(acc - 1)
     }
-
-    inner(n - 1)
+    val sqroot = Math.sqrt(n)
+    if(sqroot.isWhole())false else inner(sqroot.toLong)
   }
 }
