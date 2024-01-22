@@ -55,7 +55,7 @@ library
     import:           warnings
 
     -- Modules exported by the library.
-    exposed-modules: P001, P002, P003, P004, P005, P006, P007
+    exposed-modules: P001, P002, P003, P004, P005, P006, P007, P008
 
     -- Modules included in this library but not exported.
     other-modules: Utils
