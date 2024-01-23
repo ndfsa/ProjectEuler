@@ -1,15 +1,15 @@
-module Utils (primes) where
+module Utils (primes, isPrime) where
 
--- -- checks if n is a prime number
--- isPrime :: Integer -> Bool
--- isPrime n = checkSieve n primes
---   where
---     checkSieve _ [] = False
---     checkSieve k (p : ps) =
---       case compare k p of
---         LT -> checkSieve k ps
---         EQ -> True
---         GT -> False
+-- checks if n is a prime number
+isPrime :: Integer -> Bool
+isPrime n = checkSieve n primes
+  where
+    checkSieve _ [] = False
+    checkSieve k (p : ps) =
+      case compare k p of
+        LT -> False
+        EQ -> True
+        GT -> checkSieve k ps
 
 primes :: [Integer]
 primes = [2, 3, 5] ++ diff [7, 9 ..] nonprimes
