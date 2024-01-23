@@ -20,7 +20,7 @@ maxProd n lst
       | 0 `elem` take k tl = inner k tl acc
       | otherwise = inner k tl currentMax
       where
-        currentMax = max (product (take k tl)) acc
+        currentMax = max (product . take k $ tl) acc
 
 solve :: () -> Int
 solve = do

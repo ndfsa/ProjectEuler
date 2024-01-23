@@ -35,4 +35,4 @@ solve = do
   -- coefficient of primitive triple
   let c = div 1000 (x + y + z)
 
-  return (x * y * z * c ^ 3)
+  return (x * y * z * c ^ (3 :: Integer))
