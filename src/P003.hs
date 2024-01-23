@@ -1,3 +1,5 @@
+{-# LANGUAGE NumericUnderscores #-}
+
 module P003 (solve) where
 
 import Utils (isPrime)
@@ -17,4 +19,4 @@ largestPrimeFactor n = inner n 2
 
 solve :: () -> Integer
 solve = do
-  return (largestPrimeFactor 600851475143)
+  return (largestPrimeFactor 600_851_475_143)

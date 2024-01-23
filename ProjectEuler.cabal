@@ -1,4 +1,5 @@
-cabal-version:      3.0
+cabal-version: 3.0
+
 -- The cabal-version field refers to the version of the .cabal specification,
 -- and can be different from the cabal-install (the tool) version and the
 -- Cabal (the library) version you are using. As such, the Cabal (the library)
@@ -11,7 +12,7 @@ cabal-version:      3.0
 --   http://haskell.org/cabal/users-guide/
 --
 -- The name of the package.
-name:               ProjectEuler
+name:          ProjectEuler
 
 -- The package version.
 -- See the Haskell package versioning policy (PVP) for standards
@@ -20,7 +21,7 @@ name:               ProjectEuler
 -- PVP summary:     +-+------- breaking API changes
 --                  | | +----- non-breaking API additions
 --                  | | | +--- code changes with no API change
-version:            0.1.0.0
+version:       0.1.0.0
 
 -- A short (one-line) description of the package.
 -- synopsis:
@@ -29,7 +30,7 @@ version:            0.1.0.0
 -- description:
 
 -- The license under which the package is released.
-license:            MIT
+license:       MIT
 
 -- The package author(s).
 -- author:
@@ -39,7 +40,7 @@ license:            MIT
 
 -- A copyright notice.
 -- copyright:
-build-type:         Simple
+build-type:    Simple
 
 -- Extra doc files to be distributed with the package, such as a CHANGELOG or a README.
 -- extra-doc-files:    CHANGELOG.md
@@ -48,53 +49,62 @@ build-type:         Simple
 -- extra-source-files:
 
 common warnings
-    ghc-options: -Wall
+  ghc-options: -Wall
 
 library
-    -- Import common warning flags.
-    import:           warnings
+  -- Import common warning flags.
+  import:           warnings
 
-    -- Modules exported by the library.
-    exposed-modules: P001, P002, P003, P004, P005, P006, P007, P008
+  -- cabal-fmt: expand src
+  exposed-modules:
+    P001
+    P002
+    P003
+    P004
+    P005
+    P006
+    P007
+    P008
+    Utils
 
-    -- Modules included in this library but not exported.
-    other-modules: Utils
+  -- Modules included in this library but not exported.
+  -- other-modules:    Utils
 
-    -- LANGUAGE extensions used by modules in this package.
-    -- other-extensions:
+  -- LANGUAGE extensions used by modules in this package.
+  -- other-extensions:
 
-    -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.17.2.1
+  -- Other library packages from which modules are imported.
+  build-depends:    base ^>=4.17.2.1
 
-    -- Directories containing source files.
-    hs-source-dirs:   src
+  -- Directories containing source files.
+  hs-source-dirs:   src
 
-    -- Base language which the package is written in.
-    default-language: Haskell2010
+  -- Base language which the package is written in.
+  default-language: Haskell2010
 
 test-suite projectEuler-test
-    -- Import common warning flags.
-    import:           warnings
+  -- Import common warning flags.
+  import:           warnings
 
-    -- Base language which the package is written in.
-    default-language: Haskell2010
+  -- Base language which the package is written in.
+  default-language: Haskell2010
 
-    -- Modules included in this executable, other than Main.
-    -- other-modules:
+  -- Modules included in this executable, other than Main.
+  -- other-modules:
 
-    -- LANGUAGE extensions used by modules in this package.
-    -- other-extensions:
+  -- LANGUAGE extensions used by modules in this package.
+  -- other-extensions:
 
-    -- The interface type and version of the test suite.
-    type:             exitcode-stdio-1.0
+  -- The interface type and version of the test suite.
+  type:             exitcode-stdio-1.0
 
-    -- Directories containing source files.
-    hs-source-dirs:   test
+  -- Directories containing source files.
+  hs-source-dirs:   test
 
-    -- The entrypoint to the test suite.
-    main-is:          Main.hs
+  -- The entrypoint to the test suite.
+  main-is:          Main.hs
 
-    -- Test dependencies.
-    build-depends:
-        base ^>=4.17.2.1,
-        ProjectEuler
+  -- Test dependencies.
+  build-depends:
+    , base          ^>=4.17.2.1
+    , ProjectEuler

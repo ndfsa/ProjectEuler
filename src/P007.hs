@@ -1,3 +1,4 @@
+{-# LANGUAGE NumericUnderscores #-}
 module P007 (solve) where
 
 import Utils (isPrime)
@@ -13,4 +14,4 @@ nthPrime n = inner n 2
 
 solve :: () -> Integer
 solve = do
-  return (nthPrime 10001)
+  return (nthPrime 10_001)
