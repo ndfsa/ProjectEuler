@@ -65,6 +65,7 @@ library
     P006
     P007
     P008
+    P009
     Utils
 
   -- Modules included in this library but not exported.
