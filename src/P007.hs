@@ -1,5 +1,3 @@
-{-# LANGUAGE NumericUnderscores #-}
-
 module P007 (solve) where
 
 import Utils (primes)

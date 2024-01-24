@@ -1,5 +1,3 @@
-{-# LANGUAGE NumericUnderscores #-}
-
 module P003 (solve) where
 
 import GHC.Float (sqrtFloat)

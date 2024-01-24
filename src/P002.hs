@@ -1,5 +1,3 @@
-{-# LANGUAGE NumericUnderscores #-}
-
 module P002 (solve) where
 
 -- fibonacci sequence
