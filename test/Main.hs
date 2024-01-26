@@ -5,5 +5,5 @@ import System.Exit (exitSuccess)
 
 main :: IO ()
 main = do
-  print (solve ())
+  solve
   exitSuccess

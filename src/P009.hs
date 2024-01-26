@@ -24,7 +24,7 @@ pyTransform n (a, b, c)
   | n == 1 = (2 * a - b + c, 2 * a + 2 * b + 2 * c, 2 * a + b + 3 * c)
   | otherwise = (0, 0, 0)
 
-solve :: () -> Int
+solve :: IO ()
 solve = do
   -- all triples for which their sum divides 1000 evenly (there should only be one)
   let acceptedTriples = dropWhile (\(x, y, z) -> mod 1000 (x + y + z) /= 0) pyTriples
@@ -35,4 +35,4 @@ solve = do
   -- coefficient of primitive triple
   let c = div 1000 (x + y + z)
 
-  return (x * y * z * c ^ (3 :: Integer))
+  print $ x * y * z * c ^ (3 :: Integer)

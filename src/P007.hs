@@ -2,6 +2,7 @@ module P007 (solve) where
 
 import Utils (primes)
 
-solve :: () -> Integer
+solve :: IO ()
 solve = do
-  return (primes !! (10_001 - 1))
+  -- get the 10_001th prime at position 10_000
+  print $ primes !! (10_001 - 1)

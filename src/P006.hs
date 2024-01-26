@@ -2,7 +2,7 @@ module P006 (solve) where
 
 import Data.List (tails)
 
-solve :: () -> Integer
+solve :: IO ()
 solve = do
   -- numbers to test
   let nums = [1 .. 100]
@@ -11,4 +11,4 @@ solve = do
   let twoComb = [x * y | x : tl <- tails nums, y <- tl]
 
   -- sum all numbers and multiply by 2
-  return (sum twoComb * 2)
+  print $ sum twoComb * (2 :: Int)

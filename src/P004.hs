@@ -19,7 +19,7 @@ isPalindrome n =
   where
     digs = digits n
 
-solve :: () -> Integer
+solve :: IO ()
 solve = do
   -- all three digit numbers
   let threeDig = [999, 998 .. 100]
@@ -30,4 +30,4 @@ solve = do
   -- filter numbers that are palindromes
   let palindromes = filter isPalindrome threeProd
 
-  return (maximum palindromes)
+  print $ maximum palindromes

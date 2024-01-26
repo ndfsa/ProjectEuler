@@ -22,6 +22,6 @@ maxProd n lst
       where
         currentMax = max (product . take k $ tl) acc
 
-solve :: () -> Int
+solve :: IO ()
 solve = do
-  return (maxProd 13 input)
+  print $ maxProd 13 input

@@ -3,7 +3,7 @@ module P003 (solve) where
 import GHC.Float (sqrtFloat)
 import Utils (primes)
 
-solve :: () -> Integer
+solve :: IO ()
 solve = do
   -- input
   let num = 600_851_475_143
@@ -17,4 +17,4 @@ solve = do
   -- get actual factors of num
   let factors = filter (\x -> mod num x == 0) possibleFactors
 
-  return (last factors)
+  print $ last factors

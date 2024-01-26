@@ -24,6 +24,50 @@ input =
     [01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48]
   ]
 
-solve :: () -> Integer
+-- you only need to consider 4 directions, east, southeast, south and southwest, because the others
+-- are just a duplicate if you traverse the input left-to-right top-to-bottom
+-- XOOO.   OOOX.
+-- ..... = .....
+-- .....   .....
+
+-- get a value from the input, returns 0 if tuple is out of bounds
+matValue :: (Int, Int) -> Int
+matValue (r, c)
+  | r >= 0 && c >= 0 && r < len && c < wid = input !! r !! c
+  | otherwise = 0
+  where
+    len = length input
+    wid = length $ head input
+
+-- get the list of items in the 4 directions, with an offset
+-- ...
+-- .XO
+-- OOO
+traces :: (Int, Int) -> Int -> [Int]
+traces (r, c) i = map matValue [(r, c + i), (r + i, c + i), (r + i, c), (r + i, c - i)]
+
+-- get the max product of k numbers in 4 directions
+-- X.....O
+
+-- | --k--|
+maxProd :: Int -> (Int, Int) -> Int
+maxProd k tup@(r, c)
+  | input !! r !! c == 0 = 0
+  | otherwise = maximum $ inner 0 [1, 1, 1, 1]
+  where
+    inner i acc
+      | i >= k = acc
+      | otherwise = inner (i + 1) (zipWith (*) acc (traces tup i))
+
+solve :: IO ()
 solve = do
-  return 1
+  -- limit the tuples to those within the input
+  let lim = length input - 1
+
+  -- build the tuples
+  let positions = [(r, c) | r <- [0 .. lim], c <- [0 .. lim]]
+
+  -- get the maximum product of the 4 directions for each tuple
+  let products = map (maxProd 4) positions
+
+  print $ maximum products
