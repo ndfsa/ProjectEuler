@@ -1,6 +1,6 @@
 module P007 (solve) where
 
-import Utils (primes)
+import PrimeUtils (primes)
 
 solve :: IO ()
 solve = do

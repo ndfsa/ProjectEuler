@@ -1,7 +1,7 @@
 module P003 (solve) where
 
 import GHC.Float (sqrtFloat)
-import Utils (primes)
+import PrimeUtils (primes)
 
 solve :: IO ()
 solve = do
@@ -17,4 +17,4 @@ solve = do
   -- get actual factors of num
   let factors = filter (\x -> mod num x == 0) possibleFactors
 
-  print $ last factors
+  print (last factors :: Integer)

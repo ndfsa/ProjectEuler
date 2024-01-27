@@ -1,20 +1,21 @@
-module Utils (primes, isPrime) where
+module PrimeUtils (primes, isPrime, pdecompose) where
 
 -- checks if n is a prime number
-isPrime :: Integer -> Bool
-isPrime n = checkSieve n primes
+isPrime :: (Integral a) => a -> Bool
+isPrime n = checkSieve primes
   where
-    checkSieve _ [] = False
-    checkSieve k (p : ps) =
-      case compare k p of
+    checkSieve [] = False
+    checkSieve (p : ps) =
+      case compare n p of
         LT -> False
         EQ -> True
-        GT -> checkSieve k ps
+        GT -> checkSieve ps
 
-primes :: [Integer]
+primes :: (Integral a) => [a]
 primes = [2, 3, 5] ++ diff [7, 9 ..] nonprimes
   where
-    nonprimes :: [Integer]
+    -- infinite list of *odd* non-prime numbers
+    nonprimes :: (Integral a) => [a]
     nonprimes = foldr1 f . map g . tail $ primes
 
     merge :: (Ord a) => [a] -> [a] -> [a]
@@ -38,3 +39,15 @@ primes = [2, 3, 5] ++ diff [7, 9 ..] nonprimes
     f [] ys = ys
     f (x : xt) ys = x : merge xt ys
     g p = [n * p | n <- [p, p + 2 ..]]
+
+pdecompose :: (Integral a) => a -> [a]
+pdecompose n
+  | n <= 1 = []
+  | otherwise = reverse $ inner n primes [1]
+  where
+    inner _ [] _ = []
+    inner _ _ [] = []
+    inner k lp@(hp : tp) acc
+      | isPrime k = k : acc
+      | mod k hp == 0 = inner (div k hp) lp (hp : acc)
+      | otherwise = inner k tp acc
