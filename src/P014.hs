@@ -4,15 +4,15 @@ import Data.Foldable (maximumBy)
 import Data.Ord (comparing)
 
 -- calculate the length of the collatz sequence
--- fast enough to not require memoization
+-- fast enough, it does not need memoization
 collatzLength :: Int -> Int
-collatzLength = optimizedCollatz 0
+collatzLength = collatz 0
   where
-    optimizedCollatz :: Int -> Int -> Int
-    optimizedCollatz acc 1 = acc
-    optimizedCollatz acc n
-      | even n = optimizedCollatz (acc + 1) (div n 2)
-      | otherwise = optimizedCollatz (acc + 2) (div (3 * n + 1) 2)
+    collatz :: Int -> Int -> Int
+    collatz acc 1 = acc
+    collatz acc n
+      | even n = collatz (acc + 1) (div n 2)
+      | otherwise = collatz (acc + 2) (div (3 * n + 1) 2)
 
 solve :: IO ()
 solve = do

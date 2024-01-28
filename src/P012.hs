@@ -1,7 +1,7 @@
 module P012 (solve) where
 
 import Data.List (group)
-import PrimeUtils (pdecompose)
+import PrimeNumbers (pdecompose)
 
 -- get the number of divisors of n
 ndiv :: Integer -> Integer

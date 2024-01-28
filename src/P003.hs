@@ -1,7 +1,7 @@
 module P003 (solve) where
 
 import GHC.Float (sqrtFloat)
-import PrimeUtils (primes)
+import PrimeNumbers (primes)
 
 solve :: IO ()
 solve = do

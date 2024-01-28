@@ -1,4 +1,4 @@
-module PrimeUtils (primes, isPrime, pdecompose) where
+module PrimeNumbers (primes, isPrime, pdecompose) where
 
 -- checks if n is a prime number
 isPrime :: (Integral a) => a -> Bool
