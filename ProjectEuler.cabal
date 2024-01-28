@@ -69,6 +69,7 @@ library
     P010
     P011
     P012
+    P013
     PrimeUtils
 
   -- Modules included in this library but not exported.

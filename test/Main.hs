@@ -1,6 +1,6 @@
 module Main (main) where
 
-import P012 (solve)
+import P013 (solve)
 import System.Exit (exitSuccess)
 
 main :: IO ()
