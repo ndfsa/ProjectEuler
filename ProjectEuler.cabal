@@ -74,6 +74,7 @@ library
     P014
     P015
     P016
+    P017
     PrimeNumbers
 
   -- Modules included in this library but not exported.
